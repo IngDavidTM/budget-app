@@ -1,0 +1,21 @@
+<section>
+  <nav>
+    <h2>Categories</h2>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+  </nav>
+  <div>
+    <p>Gift credit</p>
+    <p>$ 45.00</p>
+  </div>
+  <%@categories.each do |category|%>
+    <article>
+      <%= image_tag (category.icon)%>
+      <div>
+        <h3><%= category.name %></h3>
+        <p>$17.00</p>
+        <p><%= category.created_at %></p>
+      </div>
+    </article>
+  <%end%>
+  <%= link_to "New Category", new_category_path %>
+</section>

@@ -1,0 +1,14 @@
+<section>
+  <h2>New Category</h2>
+  <%= form_with model:Category do |f| %>
+    <div class="field">
+      <%= f.label :name%><br>
+      <%= f.text_field :name, placeholder: 'Name', value: '', required: true%><br>
+    </div>
+    <div class="field">
+      <%= f.label :icon %><br />
+      <%= f.file_field :icon %>
+    </div>
+    <%= f.submit "Create Category", class: "button"%>
+  <%end%>
+</section>
