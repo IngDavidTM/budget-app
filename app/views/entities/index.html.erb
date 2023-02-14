@@ -1,0 +1,21 @@
+<section>
+  <nav>
+    <p><<p>
+    <h2>Transactions</h2>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+  </nav>
+  <div>
+    <p>Gift credit</p>
+    <p>$ 45.00</p>
+  </div>
+  <%@entities.each do |entity|%>
+    <article>
+      <div>
+        <h3><%= entity.name %></h3>
+        <p><%= entity.amount %></p>
+      </div>
+      <p><%= entity.created_at %></p>
+    </article>
+  <%end%>
+  <%= link_to "New Entity", new_category_entity_path(@category) %>
+</section>

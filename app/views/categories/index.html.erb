@@ -8,14 +8,16 @@
     <p>$ 45.00</p>
   </div>
   <%@categories.each do |category|%>
-    <article>
-      <%= image_tag (category.icon)%>
-      <div>
-        <h3><%= category.name %></h3>
-        <p>$17.00</p>
-        <p><%= category.created_at %></p>
-      </div>
-    </article>
+    <%= link_to category_entities_path(category) do%>
+      <article>
+        <%= image_tag (category.icon)%>
+        <div>
+          <h3><%= category.name %></h3>
+          <p>$17.00</p>
+          <p><%= category.created_at %></p>
+        </div>
+      </article>
+    <%end%>
   <%end%>
   <%= link_to "New Category", new_category_path %>
 </section>
