@@ -1,7 +1,11 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.includes(category_entities: [:entity]).where(user_id: current_user.id)
-    @total_amount = @categories.map { |category| category.category_entities.map { |category_entity| category_entity.entity.amount }.sum }.sum
+    @total_amount = @categories.map do |category|
+      category.category_entities.map do |category_entity|
+        category_entity.entity.amount
+      end.sum
+    end.sum
   end
 
   def new
