@@ -16,7 +16,7 @@
     </div>
     <%= fields_for :category_entities do |category_entity| %>
       <%= category_entity.label :category_id %>
-      <%= category_entity.collection_check_boxes :category_id, Category.all, :id, :name, { multiple: true } %>
+      <%= category_entity.collection_check_boxes :category_id, Category.where(user_id: current_user.id), :id, :name, { multiple: true } %>
       <%= category_entity.label :entity_id %>
       <%= category_entity.hidden_field :entity_id, value: @entity.id %>
     <%end%>
