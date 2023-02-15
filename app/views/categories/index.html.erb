@@ -1,15 +1,16 @@
-<section>
-  <nav>
-    <h2>Categories</h2>
-    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
-  </nav>
-  <div>
+<nav>
+  <p></p>
+  <h2>CATEGORIES</h2>
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+</nav>
+<section class='categories flex-column'>
+  <div class='total-credit'>
     <p>Gift credit</p>
-    <p>$ <%=@total_amount%></p>
+    <p class='value' >$ <%=@total_amount%></p>
   </div>
   <%@categories.each do |category|%>
     <%= link_to category_entities_path(category) do%>
-      <article>
+      <article class='category'>
         <% if category.icon.attached? %>
           <%= image_tag (category.icon)%>
         <%else%>
@@ -18,11 +19,11 @@
         <div>
           <h3><%= category.name %></h3>
           <% total_amount = category.category_entities.map { |category_entity| category_entity.entity.amount }.sum %>
-          <p>$ <%= total_amount%></p>
+          <p class='value'>$ <%= total_amount%></p>
           <p><%= category.created_at %></p>
         </div>
       </article>
     <%end%>
   <%end%>
-  <%= link_to "New Category", new_category_path %>
+  <div class='new-element'><%= link_to "New Category", new_category_path %></div>
 </section>
