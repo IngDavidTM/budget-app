@@ -8,13 +8,13 @@
     <p>Gift credit</p>
     <p>$ 45.00</p>
   </div>
-  <%@entities.each do |entity|%>
+  <%@category_entities.each do |category_entity|%>
     <article>
       <div>
-        <h3><%= entity.name %></h3>
-        <p><%= entity.amount %></p>
+        <h3><%= category_entity.entity.name %></h3>
+        <p><%= category_entity.entity.amount %></p>
       </div>
-      <p><%= entity.created_at %></p>
+      <p><%= category_entity.entity.created_at %></p>
     </article>
   <%end%>
   <%= link_to "New Entity", new_category_entity_path(@category) %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_14_164015) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_14_173930) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,14 +51,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_164015) do
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
+  create_table "category_entities", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "entity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_entities_on_category_id"
+    t.index ["entity_id"], name: "index_category_entities_on_entity_id"
+  end
+
   create_table "entities", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "category_id", null: false
     t.string "name"
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_entities_on_category_id"
     t.index ["user_id"], name: "index_entities_on_user_id"
   end
 
@@ -78,6 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_164015) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "users"
-  add_foreign_key "entities", "categories"
+  add_foreign_key "category_entities", "categories"
+  add_foreign_key "category_entities", "entities"
   add_foreign_key "entities", "users"
 end

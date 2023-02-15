@@ -1,6 +1,6 @@
 class EntitiesController < ApplicationController
   def index
-    @entities = Entity.all
+    @category_entities = CategoryEntity.includes(:entity).where(category_id: params[:category_id])
     @category = Category.find(params[:category_id])
   end
 
@@ -12,8 +12,10 @@ class EntitiesController < ApplicationController
   def create
     @entity = Entity.new(entity_params)
     @entity.user = current_user
-    @entity.category = Category.find(params[:category_id])
     if @entity.save
+      params[:category_entities][:category_id].each do |category_id|
+        CategoryEntity.create(entity_id: @entity.id, category_id: category_id)
+      end
       redirect_to category_entities_path(params[:category_id])
     else
       render :new
@@ -23,6 +25,6 @@ class EntitiesController < ApplicationController
   private
 
   def entity_params
-    params.require(:entity).permit(:name, :amount)
+    params.require(:entity).permit(:name, :amount, category_entities: [:category_id, :entity_id])
   end
 end
