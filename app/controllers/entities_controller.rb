@@ -1,6 +1,7 @@
 class EntitiesController < ApplicationController
   def index
     @category_entities = CategoryEntity.includes(:entity).where(category_id: params[:category_id])
+    @total_amount = @category_entities.map { |category_entity| category_entity.entity.amount }.sum
     @category = Category.find(params[:category_id])
   end
 

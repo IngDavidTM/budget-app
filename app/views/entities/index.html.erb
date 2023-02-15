@@ -1,18 +1,18 @@
 <section>
   <nav>
-    <p><<p>
+    <%= link_to "<", categories_path %>
     <h2>Transactions</h2>
     <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
   </nav>
   <div>
     <p>Gift credit</p>
-    <p>$ 45.00</p>
+    <p>$ <%=@total_amount%></p>
   </div>
   <%@category_entities.each do |category_entity|%>
     <article>
       <div>
         <h3><%= category_entity.entity.name %></h3>
-        <p><%= category_entity.entity.amount %></p>
+        <p>$ <%= category_entity.entity.amount %></p>
       </div>
       <p><%= category_entity.entity.created_at %></p>
     </article>

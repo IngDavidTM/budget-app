@@ -5,15 +5,20 @@
   </nav>
   <div>
     <p>Gift credit</p>
-    <p>$ 45.00</p>
+    <p>$ <%=@total_amount%></p>
   </div>
   <%@categories.each do |category|%>
     <%= link_to category_entities_path(category) do%>
       <article>
-        <%= image_tag (category.icon)%>
+        <% if category.icon.attached? %>
+          <%= image_tag (category.icon)%>
+        <%else%>
+          <img src="https://laboratoriodesuenos.com/wp-content/uploads/2020/02/default.jpg" alt="category icon">
+        <%end%>  
         <div>
           <h3><%= category.name %></h3>
-          <p>$17.00</p>
+          <% total_amount = category.category_entities.map { |category_entity| category_entity.entity.amount }.sum %>
+          <p>$ <%= total_amount%></p>
           <p><%= category.created_at %></p>
         </div>
       </article>
