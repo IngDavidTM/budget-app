@@ -120,6 +120,10 @@ input {
   background-color: #fff;
 }
 
+.form a {
+  text-align: center;
+}
+
 input:focus {
   outline: none;
   border: 1px solid #989ca1;
@@ -128,4 +132,18 @@ input:focus {
 .field > * {
   width: 100%;
   border-bottom: 1px solid #c5cad1;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.actions input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: #5fb523;
+  color: #fff;
+  cursor: pointer;
 }
