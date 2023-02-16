@@ -2,7 +2,7 @@
   <nav>
     <%= link_to "ᐸ", category_entities_path(@category) %>
     <h2>New Entity</h2>
-    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'logout' %>
   </nav>
   <%= form_with model: [@category, @entity] do |f| %>
     <%= render "shared/error_form_message", resource: @entity %>
