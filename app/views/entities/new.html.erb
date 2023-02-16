@@ -1,25 +1,24 @@
-<section>
-  <nav>
-    <%= link_to "<", category_entities_path(@category) %>
-    <h2>New Entity</h2>
-    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
-  </nav>
+<nav>
+  <%= link_to "ᐸ", category_entities_path(@category) %>
+  <h2>New Transaction</h2>
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'logout' %>
+</nav>
+<section class='form flex-column'>
   <%= form_with model: [@category, @entity] do |f| %>
     <%= render "shared/error_form_message", resource: @entity %>
     <div class="field">
-      <%= f.label :name%><br>
-      <%= f.text_field :name, placeholder: 'Name', value: '', required: true%><br>
+      <%= f.text_field :name, placeholder: 'Name', value: '', required: true%>
     </div>
     <div class="field">
-      <%= f.label :amount %><br />
-      <%= f.number_field :amount %>
+      <%= f.number_field :amount, placeholder: 'Amount' %>
     </div>
-    <%= fields_for :category_entities do |category_entity| %>
-      <%= category_entity.label :category_id %>
-      <%= category_entity.collection_check_boxes :category_id, Category.where(user_id: current_user.id), :id, :name, { multiple: true } %>
-      <%= category_entity.label :entity_id %>
-      <%= category_entity.hidden_field :entity_id, value: @entity.id %>
-    <%end%>
-    <%= f.submit "Create Entity", class: "button"%>
+    <div class='checkbox-fields flex-column'>
+      <%= fields_for :category_entities do |category_entity| %>
+        <%= category_entity.label :category_id %>
+        <div><%= category_entity.collection_check_boxes :category_id, Category.where(user_id: current_user.id), :id, :name, { multiple: true } %></div>
+        <%= category_entity.hidden_field :entity_id, value: @entity.id %>
+      <%end%>
+    </div>
+    <div class='new-element'><%= f.submit "Create Entity", class: "button"%><div>
   <%end%>
 </section>
