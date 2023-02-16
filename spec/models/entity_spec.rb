@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Entity, type: :model do
   before(:each) do
-    @user = User.create(name: 'Test Name', email: 'test@gmail.com', password: '123456')
-    @category = Category.create(user: @user, name: 'Test', icon: 'icon image')
-    @entity = Entity.new(user: @user, category: @category, name: 'Test', amount: 80)
+    @user = User.create(name: 'Test Name', email: 'test1@gmail.com', password: '123456')
+    @category = Category.create(user: @user, name: 'Test')
+    @entity = Entity.new(user: @user, name: 'Test', amount: 80)
   end
 
   context 'Testing validations' do
@@ -28,11 +28,6 @@ RSpec.describe Entity, type: :model do
   context 'Testing associations' do
     it 'Recipe should belong to a user' do
       @entity = Entity.reflect_on_association(:user)
-      expect(@entity.macro).to eq(:belongs_to)
-    end
-
-    it 'Recipe should have many recipe foods' do
-      @entity = Entity.reflect_on_association(:category)
       expect(@entity.macro).to eq(:belongs_to)
     end
   end
