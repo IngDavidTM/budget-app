@@ -49,3 +49,11 @@
   font-size: small;
   color: #85898e;
 }
+
+.checkbox-fields {
+  padding: 1rem;
+}
+
+.checkbox-fields div label {
+  padding: 0 1rem 0 0.5rem;
+}

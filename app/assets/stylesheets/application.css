@@ -78,6 +78,12 @@ nav a {
   color: #434b54;
 }
 
+input {
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+
 .new-element {
   position: fixed;
   display: flex;
@@ -96,6 +102,30 @@ nav a {
   padding: 15px;
 }
 
+.new-element input {
+  color: #fff;
+  background-color: #5fb523;
+  border: 1px solid #fff;
+  width: 95%;
+  padding: 15px;
+}
+
 .logout {
   color: #ffa8a8;
+}
+
+.form {
+  margin: 1rem auto;
+  box-shadow: 0.5px 0.5px 2px #989ca1;
+  background-color: #fff;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #989ca1;
+}
+
+.field > * {
+  width: 100%;
+  border-bottom: 1px solid #c5cad1;
 }
