@@ -1,21 +1,32 @@
-<section>
-  <nav>
-    <%= link_to "ᐸ", categories_path %>
-    <h2>Transactions</h2>
-    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
-  </nav>
-  <div class='total-credit'>
-    <p>Gift credit</p>
+<nav>
+  <%= link_to "ᐸ", categories_path %>
+  <h2>TRANSACTIONS</h2>
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+</nav>
+<section class='entities flex-column'>
+  <article class='category-header'>
+    <% if @category.icon.attached? %>
+      <%= image_tag (@category.icon)%>
+    <%else%>
+      <img src="https://laboratoriodesuenos.com/wp-content/uploads/2020/02/default.jpg" alt="category icon">
+    <%end%>  
+    <div>
+      <h3><%= @category.name %></h3>
+    </div>
+  </article>
+  <p class='category-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+  <div class='category-credit'>
+    <p>Total payment</p>
     <p class='value'>$ <%=@total_amount%></p>
   </div>
   <%@category_entities.each do |category_entity|%>
-    <article>
+    <article class='entity flex-column'>
       <div>
         <h3><%= category_entity.entity.name %></h3>
-        <p>$ <%= category_entity.entity.amount %></p>
+        <p class='value'>$ <%= category_entity.entity.amount %></p>
       </div>
       <p><%= category_entity.entity.created_at %></p>
     </article>
   <%end%>
-  <div class='new-element'><%= link_to "New Transaction", new_category_entity_path(@category) %></div>
 </section>
+<div class='new-element'><%= link_to "New Transaction", new_category_entity_path(@category) %></div>
