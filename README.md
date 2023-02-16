@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Budget App</b></h3>
+  <h1><b>Budget App</b></h1>
   </br>
   <img src="https://gifsec.com/wp-content/uploads/2022/09/money-gif-1.gif" alt="logo" width="250"  height="auto" />
   <br>
