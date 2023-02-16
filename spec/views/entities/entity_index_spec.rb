@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Entity', type: :system, js: true do
   describe 'Entities Index' do
     before(:each) do
-      @user = User.create(name: 'test', email: 'test@example.com', password: 'password', password_confirmation: 'password')
+      @user = User.create(name: 'test', email: 'test@example.com', password: 'password',
+                          password_confirmation: 'password')
       @category = Category.create(name: 'CategoryColor', user_id: @user.id)
       @entity = Entity.create(name: 'EntityColor', amount: 100, user_id: @user.id)
       @category_entity = CategoryEntity.create(category_id: @category.id, entity_id: @entity.id)

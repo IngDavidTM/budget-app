@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Category', type: :system, js: true do
   describe 'Category New' do
     before(:each) do
-      @user = User.create(name: 'test', email: 'test@example.com', password: 'password', password_confirmation: 'password')
+      @user = User.create(name: 'test', email: 'test@example.com', password: 'password',
+                          password_confirmation: 'password')
       @category = Category.create(name: 'CategoryColor', user_id: @user.id)
       sign_in @user
       get new_category_path
