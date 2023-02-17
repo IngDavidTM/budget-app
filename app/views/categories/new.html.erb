@@ -1,0 +1,17 @@
+<nav>
+  <%= link_to "ᐸ", categories_path %>
+  <h2>New Category</h2>
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'logout' %>
+</nav>
+<section class='form flex-column'>
+  <%= form_with model:Category do |f| %>
+    <div class="field">
+      <%= f.text_field :name, placeholder: 'Name', value: '', required: true%>
+    </div>
+    <div class="checkbox-fields flex-column">
+      <%= f.label :icon %>
+      <%= f.file_field :icon %>
+    </div>
+    <div class='new-element'><%= f.submit "Create Category", class: "button"%></div>
+  <%end%>
+</section>

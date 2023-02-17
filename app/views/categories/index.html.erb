@@ -1,0 +1,29 @@
+<nav>
+  <p></p>
+  <h2>CATEGORIES</h2>
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'logout' %>
+</nav>
+<section class='categories flex-column'>
+  <div class='total-credit'>
+    <p>Gift credit</p>
+    <p class='value' >$ <%=@total_amount%></p>
+  </div>
+  <%@categories.each do |category|%>
+    <%= link_to category_entities_path(category) do%>
+      <article class='category'>
+        <% if category.icon.attached? %>
+          <%= image_tag (category.icon)%>
+        <%else%>
+          <img src="https://laboratoriodesuenos.com/wp-content/uploads/2020/02/default.jpg" alt="category icon">
+        <%end%>  
+        <div>
+          <h3><%= category.name %></h3>
+          <% total_amount = category.category_entities.map { |category_entity| category_entity.entity.amount }.sum %>
+          <p class='value'>$ <%= total_amount%></p>
+          <p><%= category.created_at %></p>
+        </div>
+      </article>
+    <%end%>
+  <%end%>
+  <div class='new-element'><%= link_to "New Category", new_category_path %></div>
+</section>

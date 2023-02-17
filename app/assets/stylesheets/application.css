@@ -1,0 +1,151 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+a {
+  color: #989ca1;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+nav {
+  background-image: linear-gradient(#3778c2, #2e63a0);
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 15px;
+  color: #fff;
+}
+
+nav a {
+  color: #fff;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.total-credit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+  background-color: #fff;
+  color: #535c67;
+  box-shadow: 0 0 3px #989ca1;
+}
+
+.value {
+  font-weight: 500;
+  color: #434b54;
+}
+
+input {
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.new-element {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  background-color: #5fb523;
+  text-align: center;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.new-element a {
+  color: #fff;
+  border: 1px solid #fff;
+  width: 95%;
+  padding: 15px;
+}
+
+.new-element input {
+  color: #fff;
+  background-color: #5fb523;
+  border: 1px solid #fff;
+  width: 95%;
+  padding: 15px;
+}
+
+.logout {
+  color: #ffa8a8;
+}
+
+.form {
+  margin: 1rem auto;
+  box-shadow: 0.5px 0.5px 2px #989ca1;
+  background-color: #fff;
+}
+
+.form a {
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #989ca1;
+}
+
+.field > * {
+  width: 100%;
+  border-bottom: 1px solid #c5cad1;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.actions input {
+  margin-top: 1rem;
+  width: 90%;
+  padding: 1rem;
+  border: none;
+  background-color: #3778c2;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}

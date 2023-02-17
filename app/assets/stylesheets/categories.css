@@ -1,0 +1,38 @@
+.categories {
+  gap: 1rem;
+}
+
+.category {
+  display: flex;
+  background-color: #fff;
+  margin: auto;
+  max-width: 95%;
+  padding: 1rem;
+  box-shadow: 0.5px 0.5px 2px #989ca1;
+  gap: 1rem;
+}
+
+.category img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.category div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.category div > * {
+  flex: 1 1 50%;
+}
+
+.category div > *:nth-child(2) {
+  text-align: right;
+}
+
+.category div > *:nth-child(3) {
+  font-size: small;
+}
